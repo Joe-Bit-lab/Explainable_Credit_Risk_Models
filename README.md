@@ -68,7 +68,17 @@ The models were trained on balanced data to eliminate any majority bias. However
 
 ### Conclusions: 
 - The results from the explainability methods applied to the models indicate that at a global level the following features contribute the most to the models' predictions:
-   - <b>Subgrade</b> (The risk grade of the loan assigned by lending club (ranging from A1,...,A7 as high quality loans all the way      down to F1,...,F7 as lowe quality loans). A lower quality loan corresponds to a higher probability  of loan default.
-   - 
+   - <b>Subgrade</b> (The risk grade of the loan assigned by lending club) This value ranges from A1,...,A7 which indicate high quality loans, all the way down to F1,...,F7 indicating low quality loans. The shap values indicate a lower quality grade corresponds to a higher probability of loan default. This should be encouraging for lending club. These results indicate that their internal grading methods are currently robust.  
+   - <b>Balance to credit limit</b> (The outstanding loan balance divided by the borrower's credit limit) This ratio is also known as the utilization ratio. The shap values indicate that individuals with lower utilization ratios are more likely to default on a loan. 
+   -<b>Debt to income ratio</b> (The amount of monthly debt payments divided by the individuals monthly income. The shap values indicate that individuals with higher debt to income ratios are more likely to default on a loan.
+   
+### Future Work:
+It would be valuable use of time to create counterfactual explanations for each observation. For instance, if a borrower's application was classified as a default and consequently rejected for a loan, a counterfactual explanation would look something like this:
+
+<i>Your application was denied because your balance to credit ratio is 4.9 and your subgrade is E5. If your subgrade had been E4 and your balance to ratio had been 4.2, with all other values remaining constant, your application would have been approved.</i>
+
+This kind of information would provide invaluable for borrowers and regulators. 
+
+Another area for future work would be trying the replicate this project on another dataset of loans to see if the feature significances were similar (in both direction and magnitude).
 
 
